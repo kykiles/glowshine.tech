@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Пользовательское соглашение — Glowshine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #141414;
+    --border: #1f1f1f;
+    --green: #39ff8e;
+    --green-dim: rgba(57, 255, 142, 0.08);
+    --text: #c8c8c8;
+    --text-dim: #5a5a5a;
+    --text-bright: #efefef;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  .noise {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  .container {
+    position: relative; z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    color: var(--green);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .logo::before {
+    content: '';
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--green); }
+    50% { opacity: 0.5; box-shadow: 0 0 4px var(--green); }
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(24px, 5vw, 36px);
+    color: var(--text-bright);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .meta {
+    color: var(--text-dim);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  .meta span { color: var(--green); }
+
+  .summary {
+    background: var(--green-dim);
+    border: 1px solid rgba(57, 255, 142, 0.15);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .summary::before {
+    content: '// КРАТКОЕ СОДЕРЖАНИЕ';
+    display: block;
+    color: var(--green);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+
+  .accept-notice {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green);
+    border-radius: 0 4px 4px 0;
+    padding: 16px 20px;
+    margin-bottom: 48px;
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  section { margin-bottom: 40px; }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    color: var(--green);
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  h2::before {
+    content: attr(data-n);
+    color: var(--text-dim);
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    min-width: 24px;
+  }
+
+  p { margin-bottom: 10px; color: var(--text); }
+
+  ul {
+    list-style: none;
+    padding-left: 16px;
+    margin-bottom: 10px;
+  }
+
+  ul li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+
+  ul li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--green);
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 40px 0;
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    color: var(--text-dim);
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer a {
+    color: var(--green);
+    text-decoration: none;
+  }
+
+  footer a:hover { text-decoration: underline; }
+
+  strong { color: var(--text-bright); font-weight: 500; }
+
+  .contact-block {
+    background: var(--green-dim);
+    border: 1px solid rgba(57, 255, 142, 0.12);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin-top: 12px;
+  }
+
+  .contact-block p { margin-bottom: 4px; }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="container">
+
+  <header>
+    <a class="logo" href="#">GLOWSHINE</a>
+    <h1>Пользовательское соглашение</h1>
+    <p class="meta">Редакция от <span>01.04.2026</span> &nbsp;·&nbsp; glowshine.tech</p>
+  </header>
+
+  <div class="summary">
+    Настоящее Соглашение регулирует порядок использования сервиса Glowshine. Сервис предоставляет услуги защищённого интернет-соединения и обеспечения приватности в сети. Оплата — невозвратная после предоставления доступа. По вопросам — служба поддержки.
+  </div>
+
+  <div class="accept-notice">
+    Запуская бота <strong>@glowshine_bot</strong> или вводя команду <strong>/start</strong>, Пользователь подтверждает, что ознакомился с настоящим Соглашением и принимает его условия в полном объёме.
+  </div>
+
+  <section>
+    <h2 data-n="01">Общие положения</h2>
+    <p>1.1. Настоящее Пользовательское соглашение (далее — «Соглашение») регулирует порядок использования сервиса <strong>Glowshine</strong> (далее — «Сервис»), доступного через Telegram-бот <strong>@glowshine_bot</strong> и сайт <strong>glowshine.tech</strong>.</p>
+    <p>1.2. Используя Сервис, включая запуск бота, регистрацию, оплату услуг или получение доступа к материалам, Пользователь подтверждает полное принятие условий настоящего Соглашения.</p>
+    <p>1.3. В случае несогласия с условиями Соглашения Пользователь обязан прекратить использование Сервиса.</p>
+  </section>
+
+  <section>
+    <h2 data-n="02">Характер услуг</h2>
+    <p>2.1. Сервис предоставляет услуги цифрового характера в области защиты интернет-соединения и сетевой приватности, включая, но не ограничиваясь: предоставление защищённых каналов связи, инструментов обеспечения приватности в сети, сопутствующих информационных и технических материалов.</p>
+    <p>2.2. Сервис предоставляется для личного использования в целях обеспечения безопасности и конфиденциальности интернет-соединения.</p>
+    <p>2.3. Ценность услуг Сервиса заключается в <strong>надёжности соединения, техническом сопровождении, поддержке и обновлениях инфраструктуры</strong>.</p>
+  </section>
+
+  <section>
+    <h2 data-n="03">Отказ от гарантий и ответственности</h2>
+    <p>3.1. Сервис предоставляется на условиях <strong>«AS IS» («как есть»)</strong>.</p>
+    <p>3.2. Администрация не гарантирует:</p>
+    <ul>
+      <li>соответствие Сервиса ожиданиям Пользователя;</li>
+      <li>бесперебойную и безошибочную работу Сервиса;</li>
+      <li>достижение каких-либо коммерческих или профессиональных результатов.</li>
+    </ul>
+    <p>3.3. Администрация не несёт ответственности за:</p>
+    <ul>
+      <li>любые прямые или косвенные убытки, включая упущенную выгоду;</li>
+      <li>последствия применения Пользователем услуг Сервиса;</li>
+      <li>действия или бездействие третьих лиц;</li>
+      <li>временные технические сбои и ограничения доступа.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-n="04">Законность использования</h2>
+    <p>4.1. Пользователь обязуется использовать Сервис исключительно в рамках применимого законодательства страны проживания и правил третьих сторон.</p>
+    <p>4.2. Ответственность за законность использования услуг Сервиса полностью возлагается на Пользователя.</p>
+    <p>4.3. Сервис не предназначен для организации или содействия противоправной деятельности.</p>
+  </section>
+
+  <section>
+    <h2 data-n="05">Интеллектуальная собственность</h2>
+    <p>5.1. Все материалы и программное обеспечение Сервиса охраняются законодательством об интеллектуальной собственности.</p>
+    <p>5.2. Пользователю запрещается копировать, распространять, перепродавать или иным образом использовать материалы Сервиса без письменного разрешения Администрации.</p>
+  </section>
+
+  <section>
+    <h2 data-n="06">Ограничение доступа</h2>
+    <p>6.1. Администрация вправе приостановить или ограничить доступ Пользователя к Сервису в случае:</p>
+    <ul>
+      <li>нарушения условий настоящего Соглашения;</li>
+      <li>выявления злоупотреблений или подозрительной активности;</li>
+      <li>требований законодательства или платёжных провайдеров.</li>
+    </ul>
+    <p>6.2. Ограничение доступа не освобождает Пользователя от обязательств, возникших ранее.</p>
+  </section>
+
+  <section>
+    <h2 data-n="07">Платежи и возвраты</h2>
+    <p>7.1. Оплата услуг производится на условиях, указанных в боте до момента оплаты.</p>
+    <p>7.2. В связи с нематериальным характером услуг <strong>возврат денежных средств после предоставления доступа не осуществляется</strong>, за исключением случаев, указанных ниже.</p>
+    <p>7.3. Возврат средств возможен только если:</p>
+    <ul>
+      <li>услуга не была оказана по технической вине Сервиса;</li>
+      <li>доступ к услуге фактически не был предоставлен.</li>
+    </ul>
+    <p>7.4. Для рассмотрения вопроса о возврате Пользователь обязан обратиться в службу поддержки в течение <strong>24 часов</strong> с момента оплаты.</p>
+    <p>7.5. Пользователь обязуется <strong>не инициировать возврат платежа (chargeback)</strong> через платёжные системы без предварительного обращения в службу поддержки Сервиса.</p>
+  </section>
+
+  <section>
+    <h2 data-n="08">Конфиденциальность</h2>
+    <p>8.1. Обработка персональных данных регулируется <a href="https://glowshine.tech/privacy" style="color: var(--green); text-decoration: none;">Политикой конфиденциальности</a>, являющейся неотъемлемой частью настоящего Соглашения.</p>
+  </section>
+
+  <section>
+    <h2 data-n="09">Изменение условий</h2>
+    <p>9.1. Администрация вправе вносить изменения в настоящее Соглашение. Актуальная версия публикуется по адресу <strong>glowshine.tech/terms</strong>.</p>
+    <p>9.2. Продолжение использования Сервиса после обновления Соглашения означает согласие Пользователя с новыми условиями.</p>
+  </section>
+
+  <section>
+    <h2 data-n="10">Поддержка и контакты</h2>
+    <p>10.1. Поддержка осуществляется через встроенную систему тикетов бота <strong>@glowshine_bot</strong>. Пользователь может создать обращение непосредственно в боте — ответ поступит там же.</p>
+    <div class="contact-block">
+      <p>Telegram-бот: <strong><a href="https://t.me/glowshine_bot" style="color: var(--green); text-decoration: none;">@glowshine_bot</a></strong></p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <footer>
+    <span>© 2026 Glowshine &nbsp;·&nbsp; <a href="https://glowshine.tech/privacy">Политика конфиденциальности</a></span>
+    <span>Поддержка: <a href="https://t.me/glowshine_bot">@glowshine_bot</a></span>
+  </footer>
+
+</div>
+</body>
+</html>

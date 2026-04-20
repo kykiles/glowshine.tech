@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Политика конфиденциальности — Glowshine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #141414;
+    --border: #1f1f1f;
+    --green: #39ff8e;
+    --green-dim: rgba(57, 255, 142, 0.08);
+    --text: #c8c8c8;
+    --text-dim: #5a5a5a;
+    --text-bright: #efefef;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    line-height: 1.8;
+    min-height: 100vh;
+  }
+
+  .noise {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    opacity: 0.025;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px 200px;
+  }
+
+  .container {
+    position: relative; z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+  }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 32px;
+    margin-bottom: 48px;
+  }
+
+  .logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 22px;
+    color: var(--green);
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .logo::before {
+    content: '';
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green);
+    animation: pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--green); }
+    50% { opacity: 0.5; box-shadow: 0 0 4px var(--green); }
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(24px, 5vw, 36px);
+    color: var(--text-bright);
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .meta {
+    color: var(--text-dim);
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  .meta span { color: var(--green); }
+
+  .summary {
+    background: var(--green-dim);
+    border: 1px solid rgba(57, 255, 142, 0.15);
+    border-radius: 4px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .summary::before {
+    content: '// КРАТКОЕ СОДЕРЖАНИЕ';
+    display: block;
+    color: var(--green);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+  }
+
+  section { margin-bottom: 40px; }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    color: var(--green);
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  h2::before {
+    content: attr(data-n);
+    color: var(--text-dim);
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    min-width: 24px;
+  }
+
+  p { margin-bottom: 10px; color: var(--text); }
+
+  ul {
+    list-style: none;
+    padding-left: 16px;
+    margin-bottom: 10px;
+  }
+
+  ul li {
+    position: relative;
+    padding-left: 16px;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+
+  ul li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--green);
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 40px 0;
+  }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 24px;
+    color: var(--text-dim);
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  footer a {
+    color: var(--green);
+    text-decoration: none;
+  }
+
+  footer a:hover { text-decoration: underline; }
+
+  strong { color: var(--text-bright); font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="noise"></div>
+<div class="container">
+
+  <header>
+    <a class="logo" href="#">GLOWSHINE</a>
+    <h1>Политика конфиденциальности</h1>
+    <p class="meta">Редакция от <span>01.04.2026</span> &nbsp;·&nbsp; glowshine.tech</p>
+  </header>
+
+  <div class="summary">
+    Политика описывает порядок сбора, использования и защиты данных пользователей сервиса Glowshine. Мы собираем минимально необходимую информацию, не передаём её третьим лицам без оснований и используем только для обеспечения работы сервиса. Продолжая использовать сервис, вы принимаете условия настоящей Политики.
+  </div>
+
+  <section>
+    <h2 data-n="01">Общие положения</h2>
+    <p>1.1. Настоящая Политика конфиденциальности (далее — «Политика») регулирует порядок обработки и защиты информации, которую Пользователь передаёт при использовании сервиса Glowshine (далее — «Сервис»), доступного через Telegram-бот <strong>@glowshine_bot</strong> и сайт <strong>glowshine.tech</strong>.</p>
+    <p>1.2. Используя Сервис, Пользователь подтверждает своё согласие с условиями Политики. Если Пользователь не согласен с условиями — он обязан прекратить использование Сервиса.</p>
+  </section>
+
+  <section>
+    <h2 data-n="02">Сбор информации</h2>
+    <p>2.1. Сервис может собирать следующие типы данных:</p>
+    <ul>
+      <li>идентификаторы Telegram-аккаунта: числовой ID, имя пользователя (username), отображаемое имя;</li>
+      <li>техническую информацию: IP-адрес устройства, данные о браузере, операционной системе;</li>
+      <li>историю взаимодействий с Сервисом: факт и время активации подписки, используемые тарифные планы;</li>
+      <li>платёжную информацию в обезличенном виде (статус транзакции, сумма) — без данных банковских карт, которые обрабатываются исключительно платёжными провайдерами.</li>
+    </ul>
+    <p>2.2. Сервис не требует от Пользователя предоставления паспортных данных, документов, фотографий или иной расширенной личной информации.</p>
+  </section>
+
+  <section>
+    <h2 data-n="03">Использование информации</h2>
+    <p>3.1. Собранная информация используется исключительно для:</p>
+    <ul>
+      <li>обеспечения работы и предоставления услуг Сервиса;</li>
+      <li>связи с Пользователем: уведомления, техническая поддержка;</li>
+      <li>анализа и улучшения качества работы Сервиса;</li>
+      <li>выполнения требований применимого законодательства.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 data-n="04">Передача информации третьим лицам</h2>
+    <p>4.1. Администрация не передаёт данные Пользователей третьим лицам, за исключением случаев:</p>
+    <ul>
+      <li>если это требуется по закону или по запросу уполномоченных органов;</li>
+      <li>если это необходимо для исполнения обязательств перед Пользователем (платёжные провайдеры, инфраструктурные партнёры);</li>
+      <li>если Пользователь сам дал на это явное согласие.</li>
+    </ul>
+    <p>4.2. Платёжная информация передаётся исключительно платёжным провайдерам и обрабатывается в соответствии с их политиками безопасности.</p>
+  </section>
+
+  <section>
+    <h2 data-n="05">Хранение и защита данных</h2>
+    <p>5.1. Данные хранятся в течение срока, необходимого для достижения целей обработки, либо в течение срока действия подписки Пользователя, увеличенного на 90 дней.</p>
+    <p>5.2. Администрация применяет технические и организационные меры для защиты данных, однако не гарантирует абсолютную безопасность информации при передаче через интернет.</p>
+    <p>5.3. Пользователь вправе запросить удаление своих данных, обратившись в службу поддержки через бота <strong>@glowshine_bot</strong>.</p>
+  </section>
+
+  <section>
+    <h2 data-n="06">Отказ от ответственности</h2>
+    <p>6.1. Пользователь осознаёт, что передача информации через интернет сопряжена с рисками.</p>
+    <p>6.2. Администрация не несёт ответственности за утрату или раскрытие данных, если это произошло вследствие действий третьих лиц или самого Пользователя.</p>
+  </section>
+
+  <section>
+    <h2 data-n="07">Изменения в Политике</h2>
+    <p>7.1. Администрация вправе изменять условия Политики. Актуальная версия публикуется по адресу <strong>glowshine.tech/privacy</strong>.</p>
+    <p>7.2. Продолжение использования Сервиса после внесения изменений означает согласие Пользователя с новой редакцией Политики.</p>
+  </section>
+
+  <hr class="divider">
+
+  <footer>
+    <span>© 2026 Glowshine &nbsp;·&nbsp; <a href="https://glowshine.tech/terms">Пользовательское соглашение</a></span>
+    <span>Поддержка: <a href="https://t.me/glowshine_bot">@glowshine_bot</a></span>
+  </footer>
+
+</div>
+</body>
+</html>
